@@ -1,0 +1,55 @@
+CREATE TABLE pending_mutation (
+    id TEXT NOT NULL PRIMARY KEY,
+    task_id TEXT NOT NULL,
+    operation TEXT NOT NULL,
+    payload TEXT NOT NULL,
+    base_version INTEGER NOT NULL,
+    created_at TEXT NOT NULL,
+    attempt_count INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE INDEX pending_mutation_created_index
+ON pending_mutation(created_at);
+
+selectAll:
+SELECT *
+FROM pending_mutation
+ORDER BY created_at ASC;
+
+selectByTask:
+SELECT *
+FROM pending_mutation
+WHERE task_id = ?
+ORDER BY created_at ASC;
+
+insertMutation:
+INSERT INTO pending_mutation(
+    id,
+    task_id,
+    operation,
+    payload,
+    base_version,
+    created_at,
+    attempt_count
+)
+VALUES (?, ?, ?, ?, ?, ?, 0);
+
+incrementAttempt:
+UPDATE pending_mutation
+SET attempt_count = attempt_count + 1
+WHERE id = ?;
+
+deleteById:
+DELETE FROM pending_mutation
+WHERE id = ?;
+
+deleteForTask:
+DELETE FROM pending_mutation
+WHERE task_id = ?;
+
+rebaseForTask:
+UPDATE pending_mutation
+SET
+    base_version = ?,
+    attempt_count = 0
+WHERE task_id = ?;

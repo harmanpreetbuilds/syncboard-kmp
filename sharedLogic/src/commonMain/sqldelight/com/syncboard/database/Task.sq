@@ -1,0 +1,74 @@
+CREATE TABLE task_entity (
+    id TEXT NOT NULL PRIMARY KEY,
+    project_id TEXT NOT NULL,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    status TEXT NOT NULL,
+    priority TEXT NOT NULL,
+    server_version INTEGER NOT NULL,
+    updated_at TEXT NOT NULL,
+    sync_status TEXT NOT NULL
+);
+
+CREATE INDEX task_project_index
+ON task_entity(project_id);
+
+CREATE INDEX task_sync_status_index
+ON task_entity(sync_status);
+
+selectAll:
+SELECT *
+FROM task_entity
+ORDER BY updated_at DESC;
+
+selectByProject:
+SELECT *
+FROM task_entity
+WHERE project_id = ?
+ORDER BY updated_at DESC;
+
+selectById:
+SELECT *
+FROM task_entity
+WHERE id = ?
+LIMIT 1;
+
+selectPending:
+SELECT *
+FROM task_entity
+WHERE sync_status = 'PENDING'
+ORDER BY updated_at ASC;
+
+upsert:
+INSERT OR REPLACE INTO task_entity(
+    id,
+    project_id,
+    title,
+    description,
+    status,
+    priority,
+    server_version,
+    updated_at,
+    sync_status
+)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+updateStatus:
+UPDATE task_entity
+SET
+    status = ?,
+    sync_status = ?,
+    updated_at = ?
+WHERE id = ?;
+
+updateSyncStatus:
+UPDATE task_entity
+SET sync_status = ?
+WHERE id = ?;
+
+deleteById:
+DELETE FROM task_entity
+WHERE id = ?;
+
+deleteAll:
+DELETE FROM task_entity;
