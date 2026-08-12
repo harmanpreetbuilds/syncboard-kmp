@@ -38,6 +38,16 @@ SyncBoard solves this using local-first writes, a durable mutation outbox, optim
 
 ---
 
+## Demo
+
+### Watch SyncBoard in action
+
+The demo shows the native Android workspace, offline/conflict synchronization behavior, Keep Mine conflict resolution, and the native SwiftUI iOS client.
+
+▶️ **[Watch the SyncBoard portfolio demo](docs/demo/syncboard-demo.mp4)**
+
+---
+
 ## Screenshots
 
 ### Android
