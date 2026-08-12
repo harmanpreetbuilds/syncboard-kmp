@@ -39,5 +39,8 @@ jobs:
       - name: Run server tests
         run: ./gradlew :server:test
 
+      - name: Run shared KMP sync tests
+        run: ./gradlew :sharedLogic:jvmTest
+
       - name: Build Android debug APK
         run: ./gradlew :androidApp:assembleDebug

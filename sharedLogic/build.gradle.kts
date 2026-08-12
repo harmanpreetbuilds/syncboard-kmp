@@ -26,6 +26,12 @@ kotlin {
         }
     }
 
+    jvm {
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_11
+        }
+    }
+
     listOf(
         iosArm64(),
         iosSimulatorArm64()
@@ -66,6 +72,11 @@ kotlin {
 
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+
+        jvmTest.dependencies {
+            implementation(libs.ktor.client.mock)
+            implementation(libs.sqldelight.sqlite.driver)
         }
     }
 }

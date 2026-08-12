@@ -78,3 +78,11 @@ version.ref = "ktor"
 [libraries.ktor-server-test-host]
 module = "io.ktor:ktor-server-test-host"
 version.ref = "ktor"
+
+[libraries.ktor-client-mock]
+module = "io.ktor:ktor-client-mock"
+version.ref = "ktor"
+
+[libraries.sqldelight-sqlite-driver]
+module = "app.cash.sqldelight:sqlite-driver"
+version.ref = "sqldelight"
