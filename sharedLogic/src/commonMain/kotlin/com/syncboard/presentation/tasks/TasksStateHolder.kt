@@ -126,6 +126,8 @@ class TasksStateHolder(
                         action.status
                     )
 
+                    repository.syncPendingChanges()
+
                     _effects.emit(
                         TasksEffect.ShowMessage(
                             "Task updated"
