@@ -44,7 +44,11 @@ SyncBoard solves this using local-first writes, a durable mutation outbox, optim
 
 The demo shows the native Android workspace, offline/conflict synchronization behavior, Keep Mine conflict resolution, and the native SwiftUI iOS client.
 
-▶️ **[Watch the SyncBoard portfolio demo](docs/demo/syncboard-demo.mp4)**
+[![Watch SyncBoard Demo](docs/screenshots/android/01-workspace.png)](https://raw.githubusercontent.com/harmanpreetbuilds/syncboard-kmp/main/docs/demo/syncboard-demo.mp4)
+
+[![Watch SyncBoard Demo](docs/screenshots/android/01-workspace.png)](https://raw.githubusercontent.com/harmanpreetbuilds/syncboard-kmp/main/docs/demo/syncboard-demo.mp4)
+
+[Watch the full SyncBoard demo](https://raw.githubusercontent.com/harmanpreetbuilds/syncboard-kmp/main/docs/demo/syncboard-demo.mp4)
 
 ---
 
