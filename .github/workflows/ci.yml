@@ -9,14 +9,15 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  test-and-build:
+    name: Test and Build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Java
+      - name: Set up Java 21
         uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -25,14 +26,14 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install Android SDK 36
+      - name: Install Android SDK
         run: |
           sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.0.0"
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Make Gradle executable
+      - name: Make Gradle wrapper executable
         run: chmod +x gradlew
 
       - name: Run server tests
