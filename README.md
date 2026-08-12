@@ -38,6 +38,20 @@ SyncBoard solves this using local-first writes, a durable mutation outbox, optim
 
 ---
 
+## Screenshots
+
+### Android
+
+| Workspace | Conflict Resolution |
+|---|---|
+| ![Android Workspace](docs/screenshots/android/01-workspace.png) | ![Android Conflict](docs/screenshots/android/02-conflict.png) |
+
+### iOS
+
+| Workspace | Conflict Resolution |
+|---|---|
+| ![iOS Workspace](docs/screenshots/ios/01-workspace.png) | ![iOS Conflict](docs/screenshots/ios/02-conflict.png) |
+
 ## Why SyncBoard?
 
 A basic CRUD application usually assumes that the network is available whenever the user makes a change.
